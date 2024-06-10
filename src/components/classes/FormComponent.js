@@ -1,14 +1,15 @@
 import React from "react";
 import ChildComponent from "./ChildComponent";
+//import FuctionComponent from "../functions/FunctionComponent";
 
 class FormComponent extends React.Component {
     state = {
         fname: '',
         lstname: '',
         jobs: [
-            { id: 1, title: "Officer", salary: '1000$' },
-            { id: 2, title: "Doctor", salary: '1200$' },
-            { id: 3, title: "Guard", salary: '600$' },
+            { id: 1, title: "Officer", salary: 1000 },
+            { id: 2, title: "Doctor", salary: 1200 },
+            { id: 3, title: "Guard", salary: 600 },
         ]
     }
 
@@ -50,6 +51,9 @@ class FormComponent extends React.Component {
                     name={this.state.fname}
                     age={20}
                     jobs={this.state.jobs} />
+
+                {/* <FuctionComponent name={this.state.fname}
+                    age={20} jobs={this.state.jobs} /> */}
             </>
         )
     }
