@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class ChildComponent extends React.Component {
 
     state = {
@@ -12,13 +13,17 @@ class ChildComponent extends React.Component {
         })
     }
 
+    handleDeleteJob = (id) => {
+        console.log('job id: ', id);
+        this.props.handleDeleteJob(id);
+    }
+
     render() {
-        let { name, age, jobs } = this.props;
+        let { jobs } = this.props;
         let { isShow } = this.state;
-        console.log('>> child: ', this.props)
+        //console.log('>> child: ', this.props)
         return (
             <>
-                <span>Child Component: {name} - Age: {age}</span>
                 {
                     isShow === false ?
                         <div>
@@ -26,12 +31,19 @@ class ChildComponent extends React.Component {
                         </div>
                         :
                         <>
-                            <div className="jobs-list" style={{ textAlign: "left" }}>
+                            <div className="jobs-list" style={{ textAlignLast: "justify" }}>
                                 {
                                     jobs.map((item, index) => {
                                         return (
                                             <div key={item.id}>
-                                                {item.title} - {item.salary}
+                                                <span>{item.title}</span>
+                                                <span style={{ marginLeft: 10 }}>{item.salary}</span>
+                                                <button
+                                                    className="btn-default"
+                                                    style={{ marginLeft: 10 }}
+                                                    onClick={() => { this.handleDeleteJob(item.id); }}>
+                                                    Delete
+                                                </button>
                                             </div>
                                         )
                                     })

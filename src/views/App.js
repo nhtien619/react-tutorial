@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
-import FormComponent from '../components/classes/FormComponent'
+//import FormComponent from '../components/classes/FormComponent'
+import ListTodo from './Todos/ListTodo';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
-        <FormComponent />
+        {/* <FormComponent /> */}
+        <ListTodo />
       </header>
 
     </div>
