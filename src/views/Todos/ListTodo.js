@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import './ListTodo.scss'
+import AddTodo from './AddTodo';
 
 class ListTodo extends React.Component {
     state = {
@@ -9,6 +10,16 @@ class ListTodo extends React.Component {
         ]
     }
 
+    // Add new
+    addToto = (addTodo) => {
+        let newId = Math.floor(Math.random() * 301);
+        console.log('==> new Id: ' + newId + "- title: ", addTodo.title);
+        let current = this.state.listTodos;
+        current.push({ id: newId, title: addTodo.title });
+        this.setState({
+            listTodos: current
+        })
+    }
 
     render() {
         let { listTodos } = this.state;
@@ -20,27 +31,32 @@ class ListTodo extends React.Component {
                 </div>
 
                 <div className="list-todo-container">
-                    <div className="list-to">
-                        <input type='text' />
-                        <button type='button'>ADD</button>
+                    {/* Add to do component */}
+                    <AddTodo addToto={this.addToto} />
+
+                    <div className="list-todo-content">
+                        {
+                            listTodos.map((item, index) => {
+                                return (
+                                    <div className="todo-child" key={item.id}>
+                                        <div className="todo-child-title">
+                                            <span>{index + 1}.</span>
+                                            <span>{item.title}</span>
+                                        </div>
+                                        <div className="todo-child-button">
+                                            <button>Edit</button>
+                                            <button>Delete</button>
+                                        </div>
+                                    </div>
+                                )
+                            })
+
+
+                        }
                     </div>
                 </div>
 
-                <div className="list-todo-content">
-                    {
-                        listTodos.map((item, index) => {
-                            return (
-                                <div className="todo-child">
-                                    <span>{item.title}</span>
-                                    <button>Edit</button>
-                                    <button>Delete</button>
-                                </div>
-                            )
-                        })
 
-
-                    }
-                </div>
             </>
         )
     }
