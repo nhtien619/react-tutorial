@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import './ListTodo.scss'
 import AddTodo from './AddTodo';
+import { toast } from 'react-toastify';
 
 class ListTodo extends React.Component {
     state = {
@@ -19,6 +20,9 @@ class ListTodo extends React.Component {
         this.setState({
             listTodos: current
         })
+
+        console.log("toast: ", toast);
+        toast.success("Save title success !!!")
     }
 
     render() {

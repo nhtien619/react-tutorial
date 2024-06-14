@@ -1,4 +1,7 @@
 import React from "react";
+import { toast } from 'react-toastify';
+
+
 
 class AddTodo extends React.Component {
     state = { title: '' }
@@ -11,7 +14,7 @@ class AddTodo extends React.Component {
 
     handleAddTodo = (event) => {
         if (!this.state.title) {
-            alert("Request fields !");
+            toast.warning("Request fields !!");
             return;
         }
 
