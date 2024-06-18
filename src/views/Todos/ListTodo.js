@@ -8,7 +8,8 @@ class ListTodo extends React.Component {
         listTodos: [
             { id: Math.floor(Math.random() * 301), title: 'Marketing' },
             { id: Math.floor(Math.random() * 301), title: 'Bussiness' },
-        ]
+        ],
+        editTodo: {},
     }
 
     // Add new
@@ -21,13 +22,87 @@ class ListTodo extends React.Component {
             listTodos: current
         })
 
-        console.log("toast: ", toast);
-        toast.success("Save title success !!!")
+    }
+
+    handleDelete = (todo) => {
+        console.log(todo);
+        let currentTodos = this.state.listTodos;
+        currentTodos = currentTodos.filter(item => item.id !== todo.id);
+        this.setState({
+            listTodos: currentTodos
+        })
+
+        toast.success('Delete success.');
+    }
+
+    handleEdit = (todo) => {
+
+        let { editTodo, listTodos } = this.state;
+        let isEmptyObject = Object.keys(todo).length === 0;
+
+        // Save edit
+        if (isEmptyObject === false && todo.id === editTodo.id) {
+            let listTodosCopy = [...listTodos];
+            let index = listTodosCopy.findIndex(a => a.id === todo.id);
+            if (index >= 0) {
+                listTodosCopy[index].title = editTodo.title;
+
+                this.setState({
+                    listTodos: listTodosCopy,
+                    // set back editTodo = {} to renderEdit
+                    editTodo: {}
+                });
+
+                toast.success('Edit success.');
+            }
+            return;
+        } else {
+
+        }
+
+        this.setState({
+            editTodo: todo
+        });
+    }
+
+    handleOnChangeEdit = (event) => {
+        let inputChange = event.target.value;
+        if (!inputChange) {
+            this.setState({
+                isShowSave: false
+            })
+        } else {
+            this.setState({
+                isShowSave: true
+            })
+
+            let currentEdit = { ...this.state.editTodo };
+            currentEdit.title = inputChange;
+
+            this.setState({
+                editTodo: currentEdit
+            })
+        }
+    }
+
+    renderEdit(isEmptyObject, editTodo, item) {
+        //console.log('renderEdit >> ', isEmptyObject);
+        if (!isEmptyObject && editTodo.id === item.id) {
+            return (
+                <>
+                    <input value={editTodo.title} onChange={(event) => { this.handleOnChangeEdit(event); }}></input>
+                </>
+            )
+        } else {
+            return (<><span>{item.title}</span></>)
+        }
+
     }
 
     render() {
-        let { listTodos } = this.state;
-
+        let { listTodos, editTodo } = this.state;
+        let isEmptyObject = Object.keys(editTodo).length === 0;
+        // console.log('>> isEmptyObject: ', isEmptyObject)
         return (
             <>
                 <div>
@@ -45,26 +120,28 @@ class ListTodo extends React.Component {
                                     <div className="todo-child" key={item.id}>
                                         <div className="todo-child-title">
                                             <span>{index + 1}.</span>
-                                            <span>{item.title}</span>
+                                            {this.renderEdit(isEmptyObject, editTodo, item)}
                                         </div>
                                         <div className="todo-child-button">
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <button
+                                                onClick={() => this.handleEdit(item)}>
+                                                {!isEmptyObject && editTodo.id === item.id ? 'Save' : 'Edit'}
+                                            </button>
+
+                                            <button
+                                                onClick={() => { this.handleDelete(item) }}>
+                                                Delete
+                                            </button>
                                         </div>
                                     </div>
                                 )
                             })
-
-
                         }
                     </div>
                 </div>
-
-
             </>
         )
     }
-
 }
 
 export default ListTodo

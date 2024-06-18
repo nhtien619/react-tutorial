@@ -24,7 +24,7 @@ function App() {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="dark"></ToastContainer>
+          theme="dark" stacked></ToastContainer>
       </header>
 
     </div>

@@ -23,7 +23,7 @@ class AddTodo extends React.Component {
         })
 
         this.setState({ title: '' });
-
+        toast.success("Save title success")
     }
 
     render() {
