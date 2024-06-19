@@ -86,7 +86,6 @@ class ListTodo extends React.Component {
     }
 
     renderEdit(isEmptyObject, editTodo, item) {
-        //console.log('renderEdit >> ', isEmptyObject);
         if (!isEmptyObject && editTodo.id === item.id) {
             return (
                 <>
@@ -102,7 +101,7 @@ class ListTodo extends React.Component {
     render() {
         let { listTodos, editTodo } = this.state;
         let isEmptyObject = Object.keys(editTodo).length === 0;
-        // console.log('>> isEmptyObject: ', isEmptyObject)
+
         return (
             <>
                 <div>

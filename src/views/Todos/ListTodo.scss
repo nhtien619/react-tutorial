@@ -1,4 +1,10 @@
 .list-todo-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+
     button {
         border-radius: 5px;
         border: 1px solid slateblue;
