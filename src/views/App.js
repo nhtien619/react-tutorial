@@ -21,11 +21,13 @@ function App() {
           {/* <ListTodo /> */}
           {/* <FormComponent /> */}
 
+          {/* define route for page */}
           <Routes>
             <Route path="/" Component={Home} exact />
             <Route path='/todo' Component={ListTodo} />
             <Route path='/about' Component={About} />
           </Routes>
+
 
 
           <ToastContainer style={{ "width": 250, "fontSize": 16 }}
