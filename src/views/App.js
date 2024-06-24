@@ -7,44 +7,40 @@ import ListTodo from './Todos/ListTodo';
 import Nav from './Nav/Nav';
 import Home from './Home/Home';
 import About from './About/About';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
 
-        <header className="App-header">
-          <Nav />
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          {/* <ListTodo /> */}
-          {/* <FormComponent /> */}
+    <div className="App">
 
-          {/* define route for page */}
-          <Routes>
-            <Route path="/" Component={Home} exact />
-            <Route path='/todo' Component={ListTodo} />
-            <Route path='/about' Component={About} />
-          </Routes>
+      <header className="App-header">
+        <Nav />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        {/* <ListTodo /> */}
+        {/* <FormComponent /> */}
+
+        {/* define route for page */}
+
+        <Outlet />
 
 
+        <ToastContainer style={{ "width": 250, "fontSize": 16 }}
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark" stacked></ToastContainer>
+      </header>
 
-          <ToastContainer style={{ "width": 250, "fontSize": 16 }}
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={true}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark" stacked></ToastContainer>
-        </header>
+    </div>
 
-      </div>
-    </BrowserRouter>
 
 
   );
