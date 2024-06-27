@@ -1,0 +1,42 @@
+.list-user-container {
+    padding: 10px;
+
+    .user-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .user-loadmore {
+        margin-top: 20px;
+    }
+
+    .list-user-content {
+        .user-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: flex-start;
+
+        }
+
+        .user-info {
+            display: grid;
+            align-content: flex-start;
+            text-align: left;
+            min-width: 250px;
+            margin-bottom: auto;
+
+
+        }
+
+        .user-image img {
+            //width: calc(100px + 5vmin);
+        }
+
+
+        .user-button {
+            margin-top: 10px;
+
+        }
+    }
+}

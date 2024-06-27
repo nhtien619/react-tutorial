@@ -13,6 +13,7 @@ class Nav extends React.Component {
                     }}
                     relative="path">Home</NavLink>
                 <NavLink to="/todos" relative="path">Todos</NavLink>
+                <NavLink to="/users" relative="path">User</NavLink>
                 {/* <NavLink to="/about" relative="path">About</NavLink> */}
                 {/* <a class="active" href="./">Home</a>
                 <a href="./todo">Todos</a>

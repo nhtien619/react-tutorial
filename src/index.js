@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import ListTodo from './views/Todos/ListTodo.js';
 import Home from './views/Home/Home.js';
 import About from './views/About/About.js';
+import ListUser from './views/Users/ListUser.js';
+import UserDetail from './views/Users/UserDetail.js';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +23,8 @@ root.render(
           <Route path='/' element={<Home />} />
           <Route path='todos' element={<ListTodo />} />
           <Route path='about' element={<About />} />
+          <Route path='users' element={<ListUser />} />
+          <Route path='users/:id' element={<UserDetail />} />
         </Route>
 
       </Routes>

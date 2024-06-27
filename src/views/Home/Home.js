@@ -22,5 +22,4 @@ class Home extends React.Component {
 }
 
 // use function component handle call hook from class component
-
 export default NavigateHandler(Home);

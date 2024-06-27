@@ -1,10 +1,11 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const NavigateHandler = (WrappedComponent) => {
     const NavigateHookHandler = (props) => {
         const navigate = useNavigate();
-        return <WrappedComponent {...props} navigate={navigate}></WrappedComponent>;
+        const useParam = useParams();
+        return <WrappedComponent {...props} useParam={useParam} navigate={navigate}></WrappedComponent>;
     }
 
     return NavigateHookHandler;
