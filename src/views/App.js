@@ -17,15 +17,7 @@ function App() {
 
       <header className="App-header">
         <Nav />
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <ListTodo /> */}
-        {/* <FormComponent /> */}
-
-        {/* define route for page */}
-
         <Outlet />
-
-
         <ToastContainer style={{ "width": 250, "fontSize": 16 }}
           position="top-right"
           autoClose={5000}
