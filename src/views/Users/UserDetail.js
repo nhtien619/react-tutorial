@@ -13,7 +13,7 @@ class UserDetail extends React.Component {
     async componentDidMount() {
 
         if (this.props.useParam) {
-
+            console.log('props.useParam: ', this.props.useParam);
             let id = this.props.useParam.id;
             console.log(id);
 

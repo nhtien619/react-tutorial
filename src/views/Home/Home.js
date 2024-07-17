@@ -66,7 +66,7 @@ class Home extends React.Component {
     render() {
         let lisUsers = this.props.dataRedux;
 
-        console.log('>>> Check props: ', this.state);
+        console.log('>>> Check props: ', this.props);
         return (
             <div className="m-2">
                 <div>
