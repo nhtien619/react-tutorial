@@ -27,8 +27,6 @@ class UserDetail extends React.Component {
                 console.log(error)
             }
         }
-
-
     }
 
     goBackHandle = () => {
